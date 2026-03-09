@@ -2,7 +2,7 @@
 
 A secure, web-based terminal with Claude Code CLI pre-installed for Home Assistant.
 
-![Claude Terminal Screenshot](https://github.com/heytcass/home-assistant-addons/raw/main/claude-terminal/screenshot.png)
+![Claude Terminal Screenshot](https://github.com/oneofthegeeks/home-assistant-addons/raw/main/claude-terminal/screenshot.png)
 
 *Claude Terminal running in Home Assistant*
 
@@ -19,7 +19,7 @@ This add-on provides a web-based terminal interface with Claude Code CLI pre-ins
 
 - **Web Terminal Interface**: Access Claude through a browser-based terminal using ttyd
 - **Auto-Launch**: Claude starts automatically when you open the terminal
-- **Native Claude Code CLI**: Pre-installed using Anthropic's official native installer with automatic updates
+- **Native Claude Code CLI**: Pre-installed via npm for full Alpine Linux compatibility
 - **No Configuration Needed**: Uses OAuth authentication for easy setup
 - **Direct Config Access**: Terminal starts in your `/config` directory for immediate access to all Home Assistant files
 - **Home Assistant Integration**: Access directly from your dashboard
@@ -125,7 +125,7 @@ test-endpoint
 
 ## Architecture
 
-- **Base Image**: Home Assistant Alpine Linux base (3.19)
+- **Base Image**: Home Assistant Alpine Linux base (3.21)
 - **Container Runtime**: Compatible with Docker/Podman
 - **Web Terminal**: ttyd for browser-based access
 - **Process Management**: s6-overlay for reliable service startup
@@ -162,10 +162,9 @@ For detailed usage instructions, see the [documentation](DOCS.md).
 
 ## Version History
 
-### Unreleased - Native Installation
-- **Native Claude Code Installation**: Switched to official native installer
-- Automatic background updates from Anthropic
-- Faster startup without Node.js interpreter overhead
+### v1.7.0 - Alpine 3.21 + npm install fix
+- **Switched to npm install**: Replaced native installer with `npm install -g @anthropic-ai/claude-code` for Alpine Linux compatibility
+- **Bumped base image to Alpine 3.21**: Keeps base image current
 
 ### v1.5.0 (Current) - Persistent Packages
 - **Persistent Package Management**: Install APK and pip packages that survive restarts
